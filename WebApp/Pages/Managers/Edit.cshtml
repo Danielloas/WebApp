@@ -1,0 +1,55 @@
+﻿@page
+@model WebApp.Pages.Managers.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Manager</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Manager.Id" />
+            <div class="form-group">
+                <label asp-for="Manager.Name" class="control-label"></label>
+                <input asp-for="Manager.Name" class="form-control" />
+                <span asp-validation-for="Manager.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Manager.BirthDate" class="control-label"></label>
+                <input asp-for="Manager.BirthDate" class="form-control" />
+                <span asp-validation-for="Manager.BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Manager.Deleted" /> @Html.DisplayNameFor(model => model.Manager.Deleted)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Manager.Salary" class="control-label"></label>
+                <input asp-for="Manager.Salary" class="form-control" />
+                <span asp-validation-for="Manager.Salary" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Manager.FullName" class="control-label"></label>
+                <input asp-for="Manager.FullName" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
