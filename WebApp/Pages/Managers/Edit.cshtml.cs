@@ -54,6 +54,12 @@ namespace WebApp.Pages.Managers
                 return Page();
             }
 
+            if(Manager.Deleted)
+            {
+                ModelState.AddModelError("Manager.Deleted", "Clould not be deleted");
+                return Page();
+            }
+
             var manager = _mapper.Map<Manager>(Manager);
 
             _context.Attach(Manager).State = EntityState.Modified;

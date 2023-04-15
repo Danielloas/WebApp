@@ -13,3 +13,4 @@ namespace WebApp.Data.Identity
         public decimal Salary { get; set; }
     }
 }
+
