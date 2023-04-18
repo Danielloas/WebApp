@@ -1,0 +1,28 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity
+@using WebApp.Data.Identity
+@using WebApp.Pages.Admin
+@inject SignInManager<ApplicationIdentityUser> SignInManager
+
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <span>Logged In</span>
+    <br />
+    <br />
+    <form method="post" action="">
+        <b>Role: </b>
+        <input type="text" name="RoleName"/>
+        <button type="submit" class="btn btn-lg btn-primary" asp-page-handler="NewRole"> Create New Role </button>
+        <button type="submit" class="btn btn-lg btn-primary" asp-page-handler="AddRole"> Assing Role </button>
+        <button type="submit" class="btn btn-lg btn-primary" asp-page-handler="RemoveRole"> Remove Role </button>
+    </form>
+}
+else
+{
+    <span>Not Logged In</span>
+}

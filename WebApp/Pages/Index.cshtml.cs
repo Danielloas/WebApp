@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace WebApp.Pages
 {
     [Authorize]
-    public class IndexModel : PageModel
+    public partial class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;
 
